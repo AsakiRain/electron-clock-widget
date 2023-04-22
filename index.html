@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <style>
+      body {
+        /* background: rgb(13, 186, 230); */
+        margin: 0;
+        color: #333;
+        font-family: Helvetica, sans-serif;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+      }
+
+      #clock-wrapper{
+        -webkit-app-region: drag;
+        width: 240px;
+      }
+      
+      #clock {
+        aspect-ratio: 1/1;
+        background: #fff;
+        border: 12px solid #222;
+        border-radius: 100%;
+        position: relative;
+      }
+
+      .hours {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        aspect-ratio: 1/1;
+        transform: translateX(93.5px);
+      }
+
+      .hours li {
+        position: absolute;
+        transform-origin: 50% 100%;
+        height: 50%;
+      }
+      .hours span {
+        margin-top: 2px;
+        text-align: center;
+        font-size: 24px;
+        letter-spacing: -2px;
+        width: 28px;
+        height: 28px;
+        display: block;
+      }
+      /* 以下代码有助于设计数字 1*/
+      .hours li:nth-of-type(1) {
+        transform: rotate(30deg);
+      }
+      .hours li:nth-of-type(1) span {
+        transform: rotate(-30deg);
+      }
+      .hours li:nth-of-type(2) {
+        transform: rotate(60deg);
+      }
+      .hours li:nth-of-type(2) span {
+        transform: rotate(-60deg);
+      }
+      /* 以下代码有助于设计数字 3*/
+      .hours li:nth-of-type(3) {
+        transform: rotate(90deg);
+      }
+      .hours li:nth-of-type(3) span {
+        transform: rotate(-90deg);
+      }
+      .hours li:nth-of-type(4) {
+        transform: rotate(120deg);
+      }
+      .hours li:nth-of-type(4) span {
+        transform: rotate(-120deg);
+      }
+      /* 以下代码有助于设计数字 5*/
+      .hours li:nth-of-type(5) {
+        transform: rotate(150deg);
+      }
+      .hours li:nth-of-type(5) span {
+        transform: rotate(-150deg);
+      }
+      .hours li:nth-of-type(6) {
+        transform: rotate(180deg);
+      }
+      .hours li:nth-of-type(6) span {
+        transform: rotate(-180deg);
+      }
+      /* 以下代码有助于设计数字 7*/
+      .hours li:nth-of-type(7) {
+        transform: rotate(210deg);
+      }
+      .hours li:nth-of-type(7) span {
+        transform: rotate(-210deg);
+      }
+      .hours li:nth-of-type(8) {
+        transform: rotate(240deg);
+      }
+      .hours li:nth-of-type(8) span {
+        transform: rotate(-240deg);
+      }
+      /* 以下代码有助于设计数字 9 */
+      .hours li:nth-of-type(9) {
+        transform: rotate(270deg);
+      }
+      .hours li:nth-of-type(9) span {
+        transform: rotate(-270deg);
+      }
+      .hours li:nth-of-type(10) {
+        transform: rotate(300deg);
+      }
+      .hours li:nth-of-type(10) span {
+        transform: rotate(-300deg);
+      }
+      /* 以下代码有助于设计数字 11*/
+      .hours li:nth-of-type(11) {
+        transform: rotate(330deg);
+      }
+      .hours li:nth-of-type(11) span {
+        transform: rotate(-330deg);
+      }
+      .hours li:nth-of-type(12) {
+        transform: rotate(360deg);
+      }
+      .hours li:nth-of-type(12) span {
+        transform: rotate(-360deg);
+      }
+      .hr-wrapper,
+      .min-wrapper,
+      .sec-wrapper {
+        position: absolute;
+        width: 100%;
+        aspect-ratio: 1/1;
+      }
+
+      .hand-wrapper {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        bottom: 50%;
+        transform-origin: 50% 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      .hand-wrapper.hr{
+        animation: rotateHand 43200s linear infinite;
+      }
+      
+      .hand-wrapper.min{
+        animation: rotateHand 3600s linear infinite;
+      }
+      
+      .hand-wrapper.sec{
+        animation: rotateHand 60s linear infinite;
+      }
+
+      .hand.hr {
+        background: #222;
+        width: 8px;
+        height: 56%;
+        border-radius: 5px;
+        transform: translateY(6%);
+      }
+   
+      .hand.min {
+        background: #222;
+        width: 6px;
+        height: 70%;
+        border-radius: 3px;
+        transform: translateY(6%);
+      }
+     
+      .hand.sec {
+        background: #d00;
+        width: 4px;
+        height: 90%;
+        border-radius: 2px;
+        transform: translateY(6%);
+      }
+     
+      @keyframes rotateHand {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock-wrapper">
+      <div id="clock">
+        <ul class="hours">
+          <li><span>1</span></li>
+          <li><span>2</span></li>
+          <li><span>3</span></li>
+          <li><span>4</span></li>
+          <li><span>5</span></li>
+          <li><span>6</span></li>
+          <li><span>7</span></li>
+          <li><span>8</span></li>
+          <li><span>9</span></li>
+          <li><span>10</span></li>
+          <li><span>11</span></li>
+          <li><span>12</span></li>
+        </ul>
+        <div class="hr-wrapper">
+          <div class="hand-wrapper hr">
+            <div class="hand hr"></div>
+          </div>
+        </div>
+        <div class="min-wrapper">
+          <div class="hand-wrapper min">
+            <div class="hand min"></div>
+          </div>
+        </div>
+        <div class="sec-wrapper">
+          <div class="hand-wrapper sec">
+            <div class="hand sec"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // 获取当前时间
+      const dateTime = new Date();
+      const hr =
+        dateTime.getHours() > 12
+          ? dateTime.getHours() - 12
+          : dateTime.getHours();
+      const min = dateTime.getMinutes();
+      const sec = dateTime.getSeconds();
+      const milsec = dateTime.getMilliseconds();
+
+      const hrAngle = hr * 30 + (min * 6) / 12;
+      const minAngle = min * 6 + (sec * 6) / 60;
+      const secAngle = sec * 6 + (milsec * 0.36) / 1000;
+
+      // 设置手部包装纸的初始角度
+      const setAngle = (wrapper, angle) => {
+        document.querySelector("." + wrapper).style.transform =
+          "rotate(" + angle + "deg)";
+      };
+      setAngle("hr-wrapper", hrAngle);
+      setAngle("min-wrapper", minAngle);
+      setAngle("sec-wrapper", secAngle);
+    </script>
+  </body>
+</html>
