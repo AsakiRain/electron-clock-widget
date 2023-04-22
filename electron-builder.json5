@@ -3,7 +3,7 @@
  */
 {
   "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
-  appId: "cc.irain.asak.hello-electron",
+  appId: "cc.irain.asak.electron-clock-widget",
   "asar": true,
   icon: "public/icon.png",
   "directories": {
